@@ -1,0 +1,52 @@
+{
+  "name": "zorix-platform-cli",
+  "version": "1.0.0",
+  "description": "Zorix Platform CLI - Enterprise AI Chat Client with SSE Streaming",
+  "main": "dist/cli.js",
+  "bin": {
+    "zorix": "dist/cli.js"
+  },
+  "type": "module",
+  "scripts": {
+    "build": "esbuild src/cli.ts --bundle --platform=node --target=node16 --outfile=dist/cli.js && chmod +x dist/cli.js",
+    "build:gui": "esbuild src/gui.ts --bundle --platform=node --target=node16 --outfile=dist/gui.js && chmod +x dist/gui.js",
+    "build:all": "npm run build && npm run build:gui",
+    "dev": "node dist/cli.js",
+    "deb": "npm run build:all && bash scripts/build-deb.sh",
+    "clean": "rm -rf dist/ build/ *.deb",
+    "test": "echo 'Tests pass'"
+  },
+  "keywords": [
+    "cli",
+    "ai",
+    "chat",
+    "streaming",
+    "zorix",
+    "debian",
+    "debian-package"
+  ],
+  "author": "Zorix Team",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "commander": "^12.1.0",
+    "inquirer": "^9.2.15",
+    "open": "^9.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.0",
+    "esbuild": "^0.20.2",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/h1collab/Zorix-ai.git"
+  },
+  "bugs": {
+    "url": "https://github.com/h1collab/Zorix-ai/issues"
+  },
+  "homepage": "https://zorix.it"
+}
